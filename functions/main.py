@@ -1,8 +1,9 @@
 import random
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify
+from flask_lambda import FlaskLambda  # Converts Flask into a Lambda function
 
-app = Flask(__name__)
+app = FlaskLambda(__name__)
 
 class TrinaryProcessor:
     def __init__(self):
@@ -41,5 +42,6 @@ def predict():
     death_date = predict_death_date(age)
     return jsonify({"death_date": death_date})
 
+# Lambda function handler
 def handler(event, context):
     return app(event, context)
