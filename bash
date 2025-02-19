@@ -1,9 +1,10 @@
 /life-prediction
 │── /static
-│   ├── background.jpg  # Your background image
+│   ├── background.jpg  # Background image
 │── /templates
-│   ├── index.html  # Frontend HTML file
+│   ├── index.html  # Frontend HTML
 │── /functions
-│   ├── main.py  # Your Flask API for Netlify Functions
-│── netlify.toml  # Netlify configuration file
-│── requirements.txt  # Dependencies for Flask
+│   ├── main.py  # Flask API (Netlify Function)
+│── netlify.toml  # Netlify configuration
+│── requirements.txt  # Dependencies
+│── runtime.txt  # Specify Python version
