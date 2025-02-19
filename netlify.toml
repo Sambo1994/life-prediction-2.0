@@ -1,6 +1,10 @@
 [build]
   functions = "functions"
 
+[dev]
+  command = "flask run"
+  targetPort = 5000
+
 [[redirects]]
   from = "/predict"
   to = "/.netlify/functions/main"
