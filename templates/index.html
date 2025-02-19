@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Prediction</title>
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg');
+            background-size: cover;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Life Prediction Website</h1>
+    <p>Enter your age to predict your death date.</p>
+    <input type="number" id="age" placeholder="Enter Age">
+    <button onclick="predictLife()">Predict</button>
+    <p id="result"></p>
+    <p>Developed by Sambo Selvaraj</p>
+
+    <script>
+        function predictLife() {
+            let age = document.getElementById('age').value;
+            fetch('/.netlify/functions/main', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ age: age })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = "Your predicted death date is: " + data.death_date;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
